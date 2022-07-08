@@ -1,158 +1,102 @@
-<html><script>
-    Object.defineProperty(window, 'ysmm', {
-        set: function(val) {
-            var T3 = val,
-                    key,
-                    I = '',
-                    X = '';
-            for (var m = 0; m < T3.length; m++) {
-                if (m % 2 == 0) {
-                    I += T3.charAt(m);
-                } else {
-                    X = T3.charAt(m) + X;
-                }
-            }
-            T3 = I + X;
-            var U = T3.split('');
-            for (var m = 0; m < U.length; m++) {
-                if (!isNaN(U[m])) {
-                    for (var R = m + 1; R < U.length; R++) {
-                        if (!isNaN(U[R])) {
-                            var S = U[m]^U[R];
-                            if (S < 10) {
-                                U[m] = S;
-                            }
-                            m = R;
-                            R = U.length;
-                        }
-                    }
-                }
-            }
-            T3 = U.join('');
-            T3 = window.atob(T3);
-            T3 = T3.substring(T3.length - (T3.length - 16));
-            T3 = T3.substring(0, T3.length - 16);
-            key = T3;
-            if (key && (key.indexOf('http://') === 0 || key.indexOf("https://") === 0)) {
-                document.write('<!--');
-                window.stop();
-    
-                window.onbeforeunload = null;
-                window.location = key;
-            }
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="영서 - 프로필 링크">
+    <meta property="og:description" content="히히 포차코 귀여워">
+    <meta property="og:image" content="뭉그러진 포차코!.png">
+    <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/free/sparta.js"></script>
+    <title>영서 - 프로필 링크</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        * {
+            font-family: "Pretendard",serif;
         }
-    });
+
+        body {
+            background-color: #ffffff;
+        }
+
+        .profile {
+            width: 100px;
+            height: 100px;
+
+            border-radius: 100%;
+
+            border : 2px solid black;
+
+            background-image: url('뭉그러진 포차코!.png');
+            background-position: center;
+            background-size: cover;
+         }
+         .main {
+            color: black;
+            font-size: 20px;
+
+            margin-top: 25px;
+            margin-bottom: 10px;
+         }
+         .sub{
+            color: black;
+            font-size: 14px;
+
+            margin-top: 0px;
+            margin-bottom: 35px;
+         }
+         .wrap{
+             width: 300px;
+             margin: 30px auto 0px auto;
+
+             display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+         }
+        .wrap > a {
+             width: 300px;
+             height: 50px;
+
+             background-color: white;
+             border-radius: 8px;
+
+             margin-bottom: 10px;
+             
+             font-size: 14px;
+             font-weight: bold;
+             color: black;
+
+             display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-decoration: none;
+
+            box-shadow: 3px 3px 5px 0px black;
+
+            border : 1px solid black;
+         }
+
+         .wrap > a:hover {
+             background-color: #f2f2f2;
+         }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="profile"> </div>
+        <h1 class="main">영서</h1>
+        <p class="sub">포차코 내가 그렸다</p>
+
+        <a target="_blank" href="https://www.facebook.com/profile.php?id=100040740350290">페이스북</a>
+        <a target="_blank" href="https://www.instagram.com/y._.seo07/">인스타그램</a>
+
+    </div>
     
-    Object.defineProperty(window, 'source', {
-        set (v) {
-            const url = new URL(location.protocol + location.hostname + v);
-            const key = url.searchParams.get('allb');
-            if (key && (key.indexOf('http://') === 0 || key.indexOf('https://') === 0)) {
-                document.write('<!--');
-                window.stop();
-                
-                window.onbeforeunload = null;
-                window.location = key;
-            }
-        },
-    });
-    </script><head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta property="og:title" content="영서 - 프로필 링크">
-        <meta property="og:description" content="히히 포차코 귀여웜">
-        <meta property="og:image" content="뭉그러진 포차코!.png">
-        <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/free/sparta.js"></script>
-        <title>르탄이 - 프로필 링크</title>
-        <style>
-            @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-            * {
-                font-family: "Pretendard",serif;
-            }
-    
-            body {
-                background-color: #ffffff;
-            }
-    
-            .profile {
-                width: 100px;
-                height: 100px;
-    
-                border-radius: 100%;
-    
-                border : 2px solid black;
-    
-                background-image: url('뭉그러진 포차코!.png');
-                background-position: center;
-                background-size: cover;
-             }
-             .main {
-                color: black;
-                font-size: 20px;
-    
-                margin-top: 25px;
-                margin-bottom: 10px;
-             }
-             .sub{
-                color: black;
-                font-size: 14px;
-    
-                margin-top: 0px;
-                margin-bottom: 35px;
-             }
-             .wrap{
-                 width: 300px;
-                 margin: 30px auto 0px auto;
-    
-                 display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-             }
-            .wrap > a {
-                 width: 300px;
-                 height: 50px;
-    
-                 background-color: white;
-                 border-radius: 8px;
-    
-                 margin-bottom: 10px;
-                 
-                 font-size: 14px;
-                 font-weight: bold;
-                 color: black;
-    
-                 display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-    
-                text-decoration: none;
-    
-                box-shadow: 3px 3px 5px 0px black;
-    
-                border : 1px solid black;
-             }
-    
-             .wrap > a:hover {
-                 background-color: #f2f2f2;
-             }
-    
-        </style>
-    <style type="text/css"></style></head>
-    <body>
-        <div class="wrap">
-            <div class="profile"> </div>
-            <h1 class="main">영서</h1>
-            <p class="sub">포차코 내가 그렸다</p>
-    
-            <a target="_blank" href="https://www.facebook.com/profile.php?id=100040740350290">페이스북</a>
-            <a target="_blank" href="https://www.instagram.com/y._.seo07/">인스타그램</a>
-    
-        </div>
-        
-    
-    
-    
-    <a href="https://spartacodingclub.kr" target="_blank" style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px; position: absolute; bottom: 30px; left: calc(50% - 40px); width: 80px; height: 0px;"></a><gdiv class="ginger-extension-writer" style="display: none;"><gdiv class="ginger-extension-writer-frame"><iframe src="chrome-extension://kdfieneakcjfaiglcfcgkidlkmlijjnh/writer/index.html"></iframe></gdiv></gdiv></body></html>
+
+
+</body>
+</html>
